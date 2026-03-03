@@ -1,0 +1,34 @@
+{
+  "name": "manufacturing-dashboard",
+  "displayName": "Manufacturing Dashboard",
+  "repoName": "manufacturing-dashboard",
+  "description": "Full-stack manufacturing analytics dashboard with real-time KPI tracking, CSV/Excel data import, and interactive Chart.js visualizations. Express backend with React frontend.",
+  "techStack": {
+    "Frontend": "React 18 + Create React App",
+    "Backend": "Node.js + Express",
+    "Database": "SQLite (dev) / PostgreSQL (prod)",
+    "ORM": "Knex.js query builder",
+    "Charts": "Chart.js + react-chartjs-2",
+    "Styling": "Tailwind CSS 3",
+    "Testing": "Jest + Supertest (backend), React Testing Library (frontend)"
+  },
+  "features": [
+    { "name": "KPI Dashboard", "description": "Real-time manufacturing metrics with interactive Chart.js visualizations" },
+    { "name": "Data Import", "description": "Upload CSV and Excel files for bulk data ingestion" },
+    { "name": "Production Tracking", "description": "Monitor production lines, throughput, and efficiency" },
+    { "name": "Quality Metrics", "description": "Track defect rates, yield, and quality trends" },
+    { "name": "RESTful API", "description": "Express-based API with validation and error handling" },
+    { "name": "Mock Data Generation", "description": "Script to generate realistic test data for development" }
+  ],
+  "envVars": [
+    { "name": "PORT", "description": "Backend server port (default: 3001)" },
+    { "name": "DATABASE_URL", "description": "PostgreSQL connection string (production)" },
+    { "name": "NODE_ENV", "description": "Environment: development or production" }
+  ],
+  "projectStructure": "manufacturing-dashboard/\n├── frontend/\n│   ├── src/\n│   │   ├── components/    # React components\n│   │   ├── pages/         # Page components\n│   │   └── utils/         # Helper functions\n│   └── public/            # Static assets\n├── backend/\n│   ├── src/\n│   │   ├── routes/        # Express route handlers\n│   │   ├── models/        # Database models\n│   │   └── middleware/    # Express middleware\n│   ├── migrations/        # Knex migrations\n│   └── seeds/             # Seed data\n└── scripts/               # Data generation scripts",
+  "deployment": "**Frontend**: Can be deployed to any static host (Netlify, Vercel, S3).\n**Backend**: Deploy to any Node.js host (Railway, Render, EC2).\n\nFor local development:\n```bash\n# Terminal 1: Backend\ncd backend && npm run dev\n\n# Terminal 2: Frontend\ncd frontend && npm start\n```",
+  "links": {
+    "GitHub": "https://github.com/timjeromeadams1109/manufacturing-dashboard"
+  },
+  "license": "MIT"
+}
