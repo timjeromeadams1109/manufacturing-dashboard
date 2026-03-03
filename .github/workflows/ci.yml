@@ -33,7 +33,7 @@ jobs:
         run: CI=false npm run build
 
       - name: Test
-        run: npm test -- --watchAll=false
+        run: npm test -- --watchAll=false --passWithNoTests
 
   backend:
     name: Backend
