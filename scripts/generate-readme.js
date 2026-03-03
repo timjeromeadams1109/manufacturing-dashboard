@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 /**
  * README.md generator — reads project.meta.json + package.json
  * and outputs a polished README.md.
