@@ -1,0 +1,93 @@
+version: "1.0"
+project: manufacturing-dashboard
+base_branch: main
+goal: |
+  Improve code quality, test coverage, and maintainability of the
+  manufacturing dashboard. Focus on input validation, error handling,
+  API test coverage, component extraction, and documentation.
+
+tasks:
+  - id: mfg-001
+    title: "Add input validation to backend API endpoints"
+    description: |
+      Add request body validation to all POST/PUT endpoints in the backend.
+      Use a lightweight validation approach (manual checks or a small library).
+      Return 400 with descriptive error messages for invalid input.
+      Cover: required fields, type checks, reasonable length/range limits.
+    priority: high
+    estimated_complexity: medium
+    ci_checks: [test, build]
+    acceptance_criteria:
+      - "POST endpoints reject requests with missing required fields (400)"
+      - "PUT endpoints validate field types and ranges"
+      - "Error responses include field-specific messages"
+      - "Existing tests still pass"
+    context_files:
+      - backend/src/index.js
+      - backend/src/routes/
+
+  - id: mfg-002
+    title: "Add centralized error handling middleware"
+    description: |
+      Create an Express error-handling middleware that catches unhandled errors,
+      logs them, and returns consistent JSON error responses. Replace any
+      inline try/catch blocks that duplicate error formatting.
+    priority: high
+    estimated_complexity: small
+    ci_checks: [test, build]
+    acceptance_criteria:
+      - "Unhandled errors return { error: message } with appropriate status code"
+      - "Errors are logged to console with stack traces in development"
+      - "500 errors do not leak stack traces in production"
+    context_files:
+      - backend/src/index.js
+
+  - id: mfg-003
+    title: "Add API integration tests for core endpoints"
+    description: |
+      Write Jest + supertest integration tests for the core backend API
+      endpoints. Cover happy path and error cases for at least 3 endpoints.
+      Use the existing test setup in the backend.
+    priority: medium
+    estimated_complexity: medium
+    ci_checks: [test]
+    acceptance_criteria:
+      - "At least 3 API endpoints have integration tests"
+      - "Tests cover both success (200) and error (400/404) responses"
+      - "Tests run and pass in CI"
+    context_files:
+      - backend/src/index.js
+      - backend/src/routes/
+      - backend/package.json
+
+  - id: mfg-004
+    title: "Extract chart configuration into shared constants"
+    description: |
+      Identify repeated chart configuration objects in the frontend components
+      (colors, axis options, tooltip formats, etc.) and extract them into a
+      shared constants file. Update components to import from the shared file.
+    priority: medium
+    estimated_complexity: small
+    ci_checks: [lint, test, build]
+    acceptance_criteria:
+      - "Chart colors, axis defaults, and tooltip formats are in a shared file"
+      - "At least 3 components import from the shared constants"
+      - "No visual regression (charts render identically)"
+    context_files:
+      - frontend/src/components/
+
+  - id: mfg-005
+    title: "Add JSDoc comments to backend route handlers"
+    description: |
+      Add JSDoc comments to all exported route handler functions in the
+      backend. Document parameters, return values, and any thrown errors.
+      Keep comments concise and accurate.
+    priority: low
+    estimated_complexity: small
+    ci_checks: [test, build]
+    acceptance_criteria:
+      - "All route handler functions have JSDoc comments"
+      - "Comments document @param, @returns, and @throws where applicable"
+      - "No functional changes to existing code"
+    context_files:
+      - backend/src/routes/

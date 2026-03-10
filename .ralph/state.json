@@ -1,0 +1,12 @@
+{
+  "tasks": {},
+  "metrics": {
+    "completed": 0,
+    "failed": 0,
+    "total_duration_s": 0.0004601478576660156,
+    "ci_passes": 0,
+    "ci_failures": 0
+  },
+  "last_run": null,
+  "consecutive_failures": 0
+}
