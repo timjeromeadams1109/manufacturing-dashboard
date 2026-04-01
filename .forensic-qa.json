@@ -1,0 +1,39 @@
+{
+  "projectName": "manufacturing-dashboard",
+  "baseUrl": "http://localhost:3000",
+  "pages": [
+    { "path": "/", "name": "Executive Summary", "expectedStatus": 200 },
+    { "path": "/productivity", "name": "Productivity", "expectedStatus": 200 },
+    { "path": "/work-orders", "name": "Work Orders", "expectedStatus": 200 },
+    { "path": "/mrp", "name": "MRP", "expectedStatus": 200 },
+    { "path": "/data-quality", "name": "Data Quality", "expectedStatus": 200 },
+    { "path": "/upload", "name": "Upload", "expectedStatus": 200 }
+  ],
+  "apiEndpoints": [
+    { "method": "GET", "path": "/api/kpi", "expectedStatus": 200, "note": "Backend runs on port 3001" },
+    { "method": "GET", "path": "/api/work-orders", "expectedStatus": 200, "note": "Backend runs on port 3001" }
+  ],
+  "userFlows": [
+    {
+      "name": "Dashboard page load",
+      "steps": ["goto:/", "wait:1000"]
+    },
+    {
+      "name": "Navigate to productivity",
+      "steps": ["goto:/", "click:Productivity", "wait:1000"]
+    }
+  ],
+  "authFlows": [],
+  "forms": [
+    {
+      "name": "File upload",
+      "path": "/upload",
+      "fields": ["file"]
+    }
+  ],
+  "consoleErrorThreshold": 0,
+  "performanceBudget": {
+    "firstContentfulPaint": 3000,
+    "largestContentfulPaint": 4000
+  }
+}
