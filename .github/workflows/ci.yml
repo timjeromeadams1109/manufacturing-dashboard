@@ -28,7 +28,7 @@ jobs:
         run: bun install
 
       - name: Lint
-        run: bunx eslint src/
+        run: bunx eslint src/ --max-warnings 50
 
       - name: Build
         run: CI=false bun run build
