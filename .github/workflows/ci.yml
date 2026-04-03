@@ -28,7 +28,7 @@ jobs:
         run: bun install
 
       - name: Lint
-        run: bun run lint
+        run: bunx eslint src/
 
       - name: Build
         run: CI=false bun run build
